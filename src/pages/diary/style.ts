@@ -30,6 +30,6 @@ export const TitleWrapper = styled.div`
 export const Divider = styled.div`
     width: 100%;
     height: 2px;
-    background-color: ${COLOR.black};
+    background-color: ${COLOR.main};
     padding: 0px 20px;
 `;

@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import Diaryelem from "../../components/diary/diaryelem";
 import * as S from "./style";
 
 const Diary = () => {
+    const navigate = useNavigate();
     return (
         <S.Container>
             <S.ContentWrapper>
@@ -18,8 +20,9 @@ const Diary = () => {
                         style={{
                             fontSize: "1.6rem",
                             fontWeight: "600",
-                            cursor: "pointer",
+                            cursor: "pointer"
                         }}
+                        onClick={()=>navigate(`/diaryupload`)}
                     >
                         +
                     </div>
