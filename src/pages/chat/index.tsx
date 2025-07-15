@@ -1,35 +1,39 @@
 import { useState } from "react";
+import Blackchat from "../../components/chatmodel/blackchat";
 import * as S from "./style";
-import Diaryelem from "../../components/diary/diaryelem";
 
 const Chat = () => {
-    const [isSelected, setIsSelected] = useState<boolean>(true);
+    const [messages, setMessages] = useState<string[]>([]);
+    const [input, setInput] = useState<string>("");
+
+    const handleSend = () => {
+        if (input.trim() === "") return;
+        setMessages((prev) => [...prev, input]);
+        setInput("");
+    };
+
     return (
         <S.Container>
-            <S.ContentWrapper>
-                <S.Title>채팅하기</S.Title>
-                <S.ButtonWrapper>
-                    <S.Button
-                        isSelected={isSelected}
-                        onClick={() => setIsSelected((prev) => !prev)}
-                    >
-                        전문가
-                    </S.Button>
-                    <S.Button
-                        isSelected={!isSelected}
-                        onClick={() => setIsSelected((prev) => !prev)}
-                    >
-                        AI
-                    </S.Button>
-                </S.ButtonWrapper>
-                <S.ElemWrapper>
-                    <Diaryelem
-                        title="건강전문가"
-                        detail="건강입니다"
-                        link={1}
-                    />
-                </S.ElemWrapper>
-            </S.ContentWrapper>
+            <S.ChatWrapper>
+                {messages.map((msg, idx) => (
+                    <Blackchat key={idx} content={msg} />
+                ))}
+            </S.ChatWrapper>
+
+            <S.ChatContainerWrapper>
+                <S.ChatContainer
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter" && !e.shiftKey) {
+                            e.preventDefault();
+                            handleSend();
+                        }
+                    }}
+                    placeholder="메시지를 입력하세요..."
+                />
+                <S.ChatArrow src="/send.svg" onClick={handleSend} />
+            </S.ChatContainerWrapper>
         </S.Container>
     );
 };

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Diaryelem from "../../components/diary/diaryelem";
+import Diaryelem from "../../components/diaryelem";
 import * as S from "./style";
 
 const DiaryList = () => {
@@ -31,12 +31,12 @@ const DiaryList = () => {
                     <Diaryelem
                         title="너무 좋은 일"
                         detail="정말 좋았던 일"
-                        link={1}
+                        id={1}
                     />
                     <Diaryelem
                         title="너무 좋은 일"
                         detail="정말 좋았던 일"
-                        link={2}
+                        id={2}
                     />
                 </S.ElemWrapper>
             </S.ContentWrapper>

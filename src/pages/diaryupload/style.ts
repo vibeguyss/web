@@ -22,8 +22,8 @@ export const Title = styled.div`
 
 export const Divider = styled.div`
     width: 100%;
-    height: 4px;
-    background-color: ${COLOR.main};
+    height: 1px;
+    background-color: ${COLOR.gray};
     border-radius: 2px;
 `;
 
@@ -39,7 +39,7 @@ export const Input = styled.input`
     border: 1px solid ${COLOR.gray};
     border-radius: 8px;
     outline: none;
-        &:focus {
+    &:focus {
         border: 1px solid ${COLOR.main};
     }
 `;

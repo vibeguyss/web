@@ -1,9 +1,34 @@
+import axios from "axios";
 import * as S from "./style";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Diaryupload = () => {
+    const navigate = useNavigate();
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
+
+    const postData = {
+        title: title,
+        content: content,
+    };
+
+    const res = async () => {
+        try {
+            const data = await axios.post(
+                `${import.meta.env.VITE_API_URL}/diary`,
+                postData
+            );
+            if (data) {
+                alert("등록되었습니다.");
+                navigate("/diarylist");
+            } else {
+                alert("오류가 발생했습니다.");
+            }
+        } catch (err: any) {
+            console.log(err);
+        }
+    };
 
     return (
         <S.Container>
@@ -26,7 +51,10 @@ const Diaryupload = () => {
                 />
                 <S.TextCounter>{content.length} / 3000</S.TextCounter>
 
-                <S.Button disabled={title === "" || content === ""}>
+                <S.Button
+                    disabled={title === "" || content === ""}
+                    onClick={res}
+                >
                     작성 완료
                 </S.Button>
             </S.ContentWrapper>

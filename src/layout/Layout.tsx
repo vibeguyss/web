@@ -7,7 +7,7 @@ const Layout = () => (
         style={{
             display: "flex",
             background: COLOR.background,
-            maxHeight: "100vh",
+            minHeight: "100vh", 
         }}
     >
         <Sidebar />
@@ -15,9 +15,8 @@ const Layout = () => (
             style={{
                 flex: 1,
                 paddingLeft: "18rem",
-                height: "100vh",
                 background: COLOR.background,
-                overflow: "hidden",
+                overflowY: "auto",
             }}
         >
             <Outlet />
