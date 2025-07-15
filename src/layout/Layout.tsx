@@ -3,15 +3,21 @@ import Sidebar from "../components/sidebar";
 import { COLOR } from "../color/color";
 
 const Layout = () => (
-    <div style={{ display: "flex", background: COLOR.background }}>
+    <div
+        style={{
+            display: "flex",
+            background: COLOR.background,
+            maxHeight: "100vh",
+        }}
+    >
         <Sidebar />
         <main
             style={{
                 flex: 1,
                 paddingLeft: "18rem",
                 height: "100vh",
-                paddingTop: "3rem",
                 background: COLOR.background,
+                overflow: "hidden",
             }}
         >
             <Outlet />
