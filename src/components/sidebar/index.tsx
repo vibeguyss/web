@@ -4,7 +4,7 @@ import * as S from "./style";
 const sidebarItems = [
     { text: "홈", key: "/" },
     { text: "채팅", key: "/chat" },
-    { text: "나의 일기", key: "/diary" },
+    { text: "나의 일기", key: "/diarylist" },
     { text: "프로필", key: "/profile" },
 ];
 
