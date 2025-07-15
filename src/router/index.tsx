@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Chat from "../pages/chat";
 import Profile from "../pages/profile";
 import Diary from "../pages/diary";
+import Diaryupload from "../pages/diaryupload";
 
 const Router = () => {
     return (
@@ -14,6 +15,7 @@ const Router = () => {
                     <Route path="chat" element={<Chat />} />
                     <Route path="profile" element={<Profile />} />
                     <Route path="diary" element={<Diary />} />
+                    <Route path="diaryupload" element={<Diaryupload />}/>
                 </Route>
             </Routes>
         </BrowserRouter>
