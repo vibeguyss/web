@@ -3,21 +3,19 @@ import * as S from "./style";
 
 interface DiaryElem {
     title: string;
-    detail: string;
-    link: number;
+    id: number;
 }
 
-const Diaryelem = ({ title, detail, link }: DiaryElem) => {
+const Chatelem = ({ title, id }: DiaryElem) => {
     const navigate = useNavigate();
     return (
-        <S.Container onClick={() => navigate(`/diary/${link}`)}>
+        <S.Container onClick={() => navigate(`/chat/${id}`)}>
             <S.Wrapper>
                 <S.Title>{title}</S.Title>
-                <S.Date>{detail}</S.Date>
             </S.Wrapper>
             <S.Button src="/arrow.svg"></S.Button>
         </S.Container>
     );
 };
 
-export default Diaryelem;
+export default Chatelem;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { COLOR } from "../../../color/color";
+import { COLOR } from "../../color/color";
 
 export const Container = styled.div`
     width: 100%;
@@ -20,14 +20,15 @@ export const Container = styled.div`
     margin-bottom: 1rem;
 
     &::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(135deg, 
-            rgba(255, 255, 255, 0.1) 0%, 
+        background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.1) 0%,
             rgba(255, 255, 255, 0.05) 100%
         );
         opacity: 0;
@@ -67,7 +68,7 @@ export const Title = styled.div`
     font-size: 1.1rem;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     transition: color 0.3s ease;
-    
+
     ${Container}:hover & {
         color: ${COLOR.main};
     }
@@ -79,7 +80,7 @@ export const Date = styled.div`
     font-weight: 400;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     transition: color 0.3s ease;
-    
+
     ${Container}:hover & {
         color: rgba(136, 136, 136, 1);
     }
