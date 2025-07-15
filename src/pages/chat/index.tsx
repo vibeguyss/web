@@ -26,7 +26,7 @@ const Chat = () => {
                     <Diaryelem
                         title="건강전문가"
                         detail="건강입니다"
-                        link={""}
+                        link={1}
                     />
                 </S.ElemWrapper>
             </S.ContentWrapper>

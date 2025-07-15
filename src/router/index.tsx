@@ -3,8 +3,9 @@ import Layout from "../layout/Layout";
 import Home from "../pages/Home";
 import Chat from "../pages/chat";
 import Profile from "../pages/profile";
-import Diary from "../pages/diary";
 import Diaryupload from "../pages/diaryupload";
+import DiaryList from "../pages/diaryList";
+import Diary from "../pages/diary";
 
 const Router = () => {
     return (
@@ -14,8 +15,9 @@ const Router = () => {
                     <Route index element={<Home />} />
                     <Route path="chat" element={<Chat />} />
                     <Route path="profile" element={<Profile />} />
-                    <Route path="diary" element={<Diary />} />
-                    <Route path="diaryupload" element={<Diaryupload />}/>
+                    <Route path="diarylist" element={<DiaryList />} />
+                    <Route path="diaryupload" element={<Diaryupload />} />
+                    <Route path="diary/:id" element={<Diary />} />
                 </Route>
             </Routes>
         </BrowserRouter>

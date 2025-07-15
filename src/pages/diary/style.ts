@@ -4,32 +4,56 @@ import { COLOR } from "../../color/color";
 export const Container = styled.div`
     width: 100%;
     height: 100%;
-    padding-top: 3rem;
+    padding: 3rem 20px;
     box-sizing: border-box;
 `;
 
-export const ElemWrapper = styled.div`
-    width: 100%;
+export const Title = styled.div`
+    font-size: 2rem;
+    font-weight: 600;
+`;
+
+export const Date = styled.div`
+    font-size: 1rem;
+    font-weight: 400;
+    color: ${COLOR.gray};
 `;
 
 export const ContentWrapper = styled.div`
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
 `;
 
-export const TitleWrapper = styled.div`
+export const Arrow = styled.img`
+    transform: scaleX(-1);
+    height: 2rem;
+    cursor: pointer;
+`;
+
+export const DetailWrapper = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 20px;
+`;
+
+export const TitleWrapper = styled.div`
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+`;
+
+export const Content = styled.div`
+    width: 100%;
+    font-size: 1.2rem;
+    color: ${COLOR.black};
+    word-break: break-all;
 `;
 
 export const Divider = styled.div`
     width: 100%;
     height: 2px;
     background-color: ${COLOR.main};
-    padding: 0px 20px;
 `;
