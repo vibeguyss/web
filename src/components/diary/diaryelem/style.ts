@@ -7,29 +7,27 @@ export const Container = styled.div`
     border-top: 1px solid;
     border-bottom: 1px solid;
     background-color: ${COLOR.white};
-    padding-top: 20px;
-    padding-bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 30px 20px;
 `;
 
 export const Wrapper = styled.div`
     display: flex;
     align-items: center;
+    gap: 1rem;
 `;
 
 export const Title = styled.div`
     font-weight: 500;
     text-underline-position: under;
     color: black;
-    padding-left: 10px;
 `;
 
 export const Date = styled.div`
     color: #888;
     font-size: 14px;
-    padding: 10px;
 `;
 
 export const Button = styled.img`
