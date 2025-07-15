@@ -8,7 +8,7 @@ export const Container = styled.div`
     box-sizing: border-box;
 `;
 
-export const ElemRapper = styled.div`
+export const ElemWrapper = styled.div`
     width: 100%;
 `;
 
@@ -19,8 +19,17 @@ export const ContentWrapper = styled.div`
     gap: 1rem;
 `;
 
+export const TitleWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+`;
+
 export const Divider = styled.div`
     width: 100%;
     height: 2px;
-    background-color: ${COLOR.main};
+    background-color: ${COLOR.black};
+    padding: 0px 20px;
 `;

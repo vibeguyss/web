@@ -3,9 +3,8 @@ import { COLOR } from "../../../color/color";
 
 export const Container = styled.div`
     width: 100%;
-    border-color: ${COLOR.gray};
-    border-top: 1px solid;
-    border-bottom: 1px solid;
+    border-top: 1px solid ${COLOR.gray};
+    border-bottom: 1px solid ${COLOR.gray};
     background-color: ${COLOR.white};
     display: flex;
     align-items: center;
