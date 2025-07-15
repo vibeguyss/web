@@ -21,7 +21,7 @@ const Router = () => {
                     <Route path="diarylist" element={<DiaryList />} />
                     <Route path="diaryupload" element={<Diaryupload />} />
                     <Route path="diary/:id" element={<Diary />} />
-                    <Route path="chat/:id" element={<Chat />} />
+                    <Route path="chat/:roomId" element={<Chat />} />
                 </Route>
             </Routes>
         </BrowserRouter>

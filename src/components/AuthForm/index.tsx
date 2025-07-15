@@ -1,43 +1,54 @@
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
-const API_BASE_URL = import.meta.env.VITE_API_URL;
+import useUserStore from "../../store/useUserState";
+import customAxios from "../../api/customAxios";
 
 const AuthForm = () => {
+    const { setUser } = useUserStore();
     const [isLogin, setIsLogin] = useState(true);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
+    const fetchMe = async () => {
+        try {
+            const res = await customAxios.get("/user/me");
+            const { userId, imageUrl } = res.data.data;
+            console.log("setUser 호출 전", { userId, imageUrl });
+            setUser({ userId, imageUrl });
+            console.log("setUser 호출 후");
+        } catch (err) {
+            console.error("내 정보 가져오기 실패:", err);
+        }
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         const endpoint = isLogin ? "/auth/sign-in" : "/auth/sign-up";
-        const url = `${API_BASE_URL}${endpoint}`;
 
         const payload = isLogin
-            ? { email, password } // ✅ 로그인 요청 형식
-            : { email, password, userRole: "USER" }; // ✅ 회원가입 요청 형식
+            ? { email, password }
+            : { email, password, userRole: "USER" };
 
         try {
-            const res = await axios.post(url, payload);
-            const data = res.data;
-
-            console.log("✅ 성공:", data);
+            const res = await customAxios.post(endpoint, payload);
+            const data = res.data.data;
 
             if (isLogin) {
                 const { accessToken, refreshToken } = data;
                 if (res.status === 200) {
                     localStorage.setItem("accessToken", accessToken);
                     localStorage.setItem("refreshToken", refreshToken);
-                    alert("로그인 성공!");
-                    navigate("/"); // 홈으로 이동
+                    await fetchMe();
+                    setTimeout(() => {
+                        navigate("/");
+                    }, 1000);
                 } else {
                     alert("토큰이 없습니다.");
                 }
             } else {
                 alert("회원가입 성공! 로그인해주세요.");
-                setIsLogin(true); // 로그인 모드로 전환
+                setIsLogin(true);
             }
         } catch (err: any) {
             console.error("❌ 오류:", err.response?.data || err.message);
@@ -72,7 +83,6 @@ const AuthForm = () => {
                     maxWidth: "400px",
                 }}
             >
-                {/* ✅ 로그인/회원가입 모두 이메일/비밀번호 입력 */}
                 <input
                     type="email"
                     placeholder="이메일"
