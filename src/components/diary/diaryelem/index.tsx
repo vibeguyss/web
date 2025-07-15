@@ -1,15 +1,21 @@
-import * as S from "./style"
+import * as S from "./style";
 
-const Diaryelem = () => {
-  return (
-    <S.Container>
-        <S.Wrapper>
-        <S.Title>백일해 예방 정보</S.Title>
-        <S.Date>2024-01-23</S.Date>
-        </S.Wrapper>
-        <S.Button src="/arrow.svg"></S.Button>
-    </S.Container>
-  )
+interface DiaryElem {
+    title: string;
+    detail: string;
+    link: any;
 }
 
-export default Diaryelem
+const Diaryelem = ({ title, detail, link }: DiaryElem) => {
+    return (
+        <S.Container>
+            <S.Wrapper>
+                <S.Title>{title}</S.Title>
+                <S.Date>{detail}</S.Date>
+            </S.Wrapper>
+            <S.Button src="/arrow.svg" onClick={link}></S.Button>
+        </S.Container>
+    );
+};
+
+export default Diaryelem;
