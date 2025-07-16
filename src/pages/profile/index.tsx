@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const Profile = () => {
     const fetchMe = async () => {
@@ -14,7 +14,7 @@ const Profile = () => {
                     },
                 }
             );
-            
+
             console.log("내 정보", res.data);
         } catch (err) {
             console.error("❌ 일기 가져오기 실패:", err);
