@@ -56,10 +56,14 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
     display: flex;
-    flex-direction: column;
     gap: 0.5rem;
     position: relative;
+    align-items: center;
     z-index: 1;
+`;
+
+export const Profile = styled.img`
+    height: 2rem;
 `;
 
 export const Title = styled.div`

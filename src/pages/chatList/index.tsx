@@ -10,6 +10,7 @@ const ChatList = () => {
         name: string;
         imageUrl: string;
     }
+
     const [isSelected, setIsSelected] = useState<boolean>(true);
     const [list, setList] = useState<ListProps[]>([]);
     const { user } = useUserStore();
@@ -25,7 +26,7 @@ const ChatList = () => {
             console.log("API 응답 data:", res.data);
             setList(res.data.data);
         } catch (error) {
-            console.error("일기 목록 불러오기 실패:", error);
+            console.error("데이터 불러오기 실패:", error);
         }
     };
 
@@ -40,26 +41,37 @@ const ChatList = () => {
                 <S.ButtonWrapper>
                     <S.Button
                         isSelected={isSelected}
-                        onClick={() => setIsSelected((prev) => !prev)}
+                        onClick={() => setIsSelected(true)}
                     >
                         전문가
                     </S.Button>
                     <S.Button
                         isSelected={!isSelected}
-                        onClick={() => setIsSelected((prev) => !prev)}
+                        onClick={() => setIsSelected(false)}
                     >
                         AI
                     </S.Button>
                 </S.ButtonWrapper>
+
                 <S.ElemWrapper>
-                    {" "}
-                    {Array.isArray(list) && list.length === 0 && (
-                        <p>작성된 일기가 없습니다.</p>
+                    {isSelected ? (
+                        <>
+                            {Array.isArray(list) && list.length === 0 ? (
+                                <p>전문가가 없습니다.</p>
+                            ) : (
+                                list.map((l) => (
+                                    <Chatelem
+                                        key={l.userId}
+                                        title={l.name}
+                                        id={l.userId}
+                                        img={l.imageUrl}
+                                    />
+                                ))
+                            )}
+                        </>
+                    ) : (
+                        <Chatelem title="AI와 소통하기" id={500} img="" />
                     )}
-                    {Array.isArray(list) &&
-                        list.map((l) => (
-                            <Chatelem title={l.name} id={l.userId} />
-                        ))}
                 </S.ElemWrapper>
             </S.ContentWrapper>
         </S.Container>

@@ -8,20 +8,23 @@ import Diary from "../pages/diary";
 import ChatList from "../pages/chatList";
 import Chat from "../pages/chat";
 import AuthPage from "../pages/auth/AuthPage";
+import PrivateRoute from "./privateRoute";
 
 const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/auth" element={<AuthPage />} />
-                <Route path="/" element={<Layout />}>
-                    <Route index element={<Home />} />
-                    <Route path="chat" element={<ChatList />} />
-                    <Route path="profile" element={<Profile />} />
-                    <Route path="diarylist" element={<DiaryList />} />
-                    <Route path="diaryupload" element={<Diaryupload />} />
-                    <Route path="diary/:id" element={<Diary />} />
-                    <Route path="chat/:roomId" element={<Chat />} />
+                <Route element={<PrivateRoute />}>
+                    <Route path="/" element={<Layout />}>
+                        <Route index element={<Home />} />
+                        <Route path="chat" element={<ChatList />} />
+                        <Route path="profile" element={<Profile />} />
+                        <Route path="diarylist" element={<DiaryList />} />
+                        <Route path="diaryupload" element={<Diaryupload />} />
+                        <Route path="diary/:id" element={<Diary />} />
+                        <Route path="chat/:roomId" element={<Chat />} />
+                    </Route>
                 </Route>
             </Routes>
         </BrowserRouter>
