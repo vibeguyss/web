@@ -1,15 +1,11 @@
 import * as S from "./style";
 
-interface BlackChat {
-    content: string;
-}
-
-const Blackchat = ({ content }: BlackChat) => {
+const Whitechat = ({ content }: { content: string }) => {
     return (
-        <S.MessageWrapper>
-            <S.Container>{content}</S.Container>
-        </S.MessageWrapper>
+        <S.Wrapper>
+            <S.Bubble>{content}</S.Bubble>
+        </S.Wrapper>
     );
 };
 
-export default Blackchat;
+export default Whitechat;

@@ -1,15 +1,11 @@
-import * as S from "./style";
+import * as S from "./style"
 
-interface WhiteChat {
-    content: string;
-}
-
-const WhiteChat = ({ content }: WhiteChat) => {
-    return (
-        <S.MessageWrapper>
-            <S.Container>{content}</S.Container>
-        </S.MessageWrapper>
-    );
+const Whitechat = ({ content }: { content: string }) => {
+  return (
+    <S.Wrapper>
+      <S.Bubble>{content}</S.Bubble>
+    </S.Wrapper>
+  );
 };
 
-export default WhiteChat;
+export default Whitechat;
