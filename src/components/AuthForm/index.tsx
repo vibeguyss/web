@@ -13,9 +13,9 @@ const AuthForm = () => {
     const fetchMe = async () => {
         try {
             const res = await customAxios.get("/user/me");
-            const { userId, imageUrl } = res.data.data;
+            const { userId, imageUrl, name, email } = res.data.data;
             console.log("setUser 호출 전", { userId, imageUrl });
-            setUser({ userId, imageUrl });
+            setUser({ userId, imageUrl, name, email });
             console.log("setUser 호출 후");
         } catch (err) {
             console.error("내 정보 가져오기 실패:", err);

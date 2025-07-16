@@ -4,6 +4,8 @@ import { persist, createJSONStorage } from "zustand/middleware";
 interface User {
     userId: number;
     imageUrl: string;
+    name: string;
+    email: string;
 }
 
 interface UserState {
@@ -20,7 +22,7 @@ const useUserStore = create<UserState>()(
             clearUser: () => set({ user: null }),
         }),
         {
-            name: "user-storage",
+            name: "zustand-user-storage",
             storage: createJSONStorage(() => localStorage),
         }
     )

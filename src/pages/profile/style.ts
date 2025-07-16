@@ -37,3 +37,25 @@ export const Greeting = styled.div`
         color: #333;
     }
 `;
+
+export const InfoWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+`;
+
+export const Mood = styled.p`
+    font-size: 1.1rem;
+    color: #6c757d;
+    margin: 0;
+`;
+
+export const Message = styled.p`
+    background-color: #f1f3f5;
+    padding: 1rem 1.25rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    color: #495057;
+    line-height: 1.5;
+    max-width: 300px;
+`;
