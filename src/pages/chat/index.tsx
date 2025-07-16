@@ -19,7 +19,7 @@ const Chat = () => {
     const [messages, setMessages] = useState<Message[]>([]);
     const [input, setInput] = useState("");
     const [isProcessing, setIsProcessing] = useState(false);
-    const [isExpertMode, setIsExpertMode] = useState(false);
+    const [isExpertMode] = useState(false);
     const { user } = useUserStore();
     const myUserId = user?.userId ?? 500;
     const loadingIdRef = useRef<string | null>(null);

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import * as S from "./style";
 
 interface UserData {
@@ -14,6 +14,16 @@ const Profile = () => {
         try {
             const token = localStorage.getItem("accessToken");
 
+            const res = await axios.get(
+                `${import.meta.env.VITE_API_URL}/user/me`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+
+            console.log("내 정보", res.data);
             const res = await axios.get(`${import.meta.env.VITE_API_URL}/user/me`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
