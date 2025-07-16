@@ -1,19 +1,20 @@
 import axios from "axios";
 import { useEffect } from "react";
-import * as S from "./style";
-
-interface UserData {
-    name: string;
-    profileImageUrl: string;
-}
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-    const [user, setUser] = useState<UserData | null>(null);
+    const navigate = useNavigate();
 
     const fetchMe = async () => {
-        try {
-            const token = localStorage.getItem("accessToken");
+        const token = localStorage.getItem("accessToken");
 
+        if (!token) {
+            console.warn("❗ 토큰 없음: 로그인 페이지로 이동");
+            navigate("/auth");
+            return;
+        }
+
+        try {
             const res = await axios.get(
                 `${import.meta.env.VITE_API_URL}/user/me`,
                 {
@@ -24,15 +25,10 @@ const Profile = () => {
             );
 
             console.log("내 정보", res.data);
-            const res = await axios.get(`${import.meta.env.VITE_API_URL}/user/me`, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
-
-            setUser(res.data);
         } catch (err) {
             console.error("❌ 사용자 정보 가져오기 실패:", err);
+            // 토큰은 있지만 만료되었을 경우에도 /auth 이동
+            navigate("/auth");
         }
     };
 
@@ -40,18 +36,7 @@ const Profile = () => {
         fetchMe();
     }, []);
 
-    return (
-        <S.Container>
-            {user && (
-                <S.ProfileWrapper>
-                    <S.ProfileImage src={user.profileImageUrl} alt="프로필 이미지" />
-                    <S.Greeting>
-                        <strong>{user.name}</strong>님, 안녕하세요 👋
-                    </S.Greeting>
-                </S.ProfileWrapper>
-            )}
-        </S.Container>
-    );
+    return <div></div>;
 };
 
 export default Profile;
