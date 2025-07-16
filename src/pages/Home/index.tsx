@@ -11,9 +11,6 @@ const Home = () => {
                 <Subtitle>
                     당신의 상처는 사라지지 않지만, 함께하면 덜 아파질 수 있어요.
                 </Subtitle>
-                <StartButton onClick={() => navigate("/diaryupload")}>
-                    지금 시작하기
-                </StartButton>
             </Hero>
 
             <Section>
@@ -60,12 +57,17 @@ const Home = () => {
 export default Home;
 
 const Container = styled.div`
+    flex: 1; /* 사이드바 옆 영역 전체 차지 */
     font-family: "Pretendard", sans-serif;
-    background-color: #fdfbfa;
     color: #2c2c2c;
     padding: 3rem 2rem;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     max-width: 900px;
-    margin: auto;
+    margin: 0 auto;
+    background-color: transparent;
 `;
 
 const Hero = styled.section`
@@ -81,21 +83,8 @@ const Title = styled.h1`
 
 const Subtitle = styled.p`
     font-size: 1.2rem;
-    color: #555;
+    color: #666666;
     margin-bottom: 2rem;
-`;
-
-const StartButton = styled.button`
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    background-color: #ffd8d8;
-    border: none;
-    border-radius: 999px;
-    cursor: pointer;
-    transition: all 0.3s;
-    &:hover {
-        background-color: #ffc1c1;
-    }
 `;
 
 const Section = styled.section`
@@ -117,11 +106,16 @@ const Features = styled.div`
 `;
 
 const FeatureBox = styled.div`
-    background-color: #fff3f3;
+    background-color: #e6f0ff;
     padding: 1.5rem;
     border-radius: 1rem;
     flex: 1 1 250px;
     text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+        background-color: #d0e6ff;
+    }
 `;
 
 const Icon = styled.div`
@@ -130,9 +124,9 @@ const Icon = styled.div`
 `;
 
 const Testimonial = styled.section`
-    background-color: #fff8f8;
+    background-color: #e6f0ff;
     padding: 2rem;
-    border-left: 5px solid #ffbdbd;
+    border-left: 5px solid #4a90e2;
     margin-bottom: 4rem;
     font-style: italic;
 
@@ -151,13 +145,18 @@ const Testimonial = styled.section`
 
 const CTA = styled.section`
     text-align: center;
-    padding: 2rem 0;
+    margin-top: 6rem;
+    
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
 `;
 
 const CTAButton = styled.button`
     padding: 0.9rem 1.8rem;
     font-size: 1rem;
-    background-color: #ffa0a0;
+    background-color: #4a90e2;
     border: none;
     border-radius: 999px;
     cursor: pointer;
@@ -165,6 +164,6 @@ const CTAButton = styled.button`
     font-weight: 600;
     transition: 0.3s ease;
     &:hover {
-        background-color: #ff8c8c;
+        background-color: #357abd;
     }
 `;
