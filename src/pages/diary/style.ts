@@ -57,3 +57,25 @@ export const Divider = styled.div`
     height: 2px;
     background-color: ${COLOR.main};
 `;
+
+export const FeedbackWrapper = styled.div`
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f6f8fa;
+    border-left: 4px solid #4f7cac;
+    border-radius: 8px;
+`;
+
+export const FeedbackTitle = styled.h3`
+    margin: 0;
+    font-size: 1.1rem;
+    color: #4f7cac;
+    font-weight: bold;
+`;
+
+export const FeedbackText = styled.p`
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+`;
